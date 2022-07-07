@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "559527309509",
+    "project_id": "ocpizza-a117f",
+    "storage_bucket": "ocpizza-a117f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:559527309509:android:21bd35e5c38ada42c400ac",
+        "android_client_info": {
+          "package_name": "fr.lleotraas.oc_pizza_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "559527309509-d672grg9jt9v9b5rudmmu6uv9idfnekj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "fr.lleotraas.oc_pizza_app",
+            "certificate_hash": "27f4d13ad336d42e8bc71c89eb45d72ab33e034f"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcAVB88bonq3IYiGvMwVvvH7-pUUDTlcg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

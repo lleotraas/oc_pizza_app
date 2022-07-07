@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fragment_login_card_view"
+        android:layout_width="@dimen/fragment_login_card_view_width"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/fragment_login_already_registered_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/fragment_login_already_registered_tv"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="@dimen/title_text_size"
+                android:layout_margin="@dimen/margin_normal_size"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_login_username_container"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_login_already_registered_tv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="@dimen/margin_normal_size"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_login_username_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/fragment_login_username"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_login_password_container"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_login_username_container"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="@dimen/margin_normal_size">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_login_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/fragment_login_password"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/fragment_login_forget_password_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_login_password_container"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="@dimen/margin_normal_size"
+                android:text="@string/fragment_login_forgot_password_btn_text"
+                android:background="@android:color/transparent"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/fragment_login_create_account_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_login_forget_password_btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="@dimen/margin_normal_size"
+                android:text="@string/fragment_login_create_account_btn_text"
+                android:background="@android:color/transparent"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/fragment_login_validate_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_login_create_account_btn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="@dimen/margin_normal_size"
+                android:padding="@dimen/padding_normal_size"
+                android:text="@string/fragment_login_create_account_btn_text"
+                android:background="@drawable/rounded_border_black"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

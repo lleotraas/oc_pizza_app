@@ -14,8 +14,10 @@ interface UserApi {
         @Path("id") id: Int
     ): User
 
-    @GET("/add/user/firstname={fname}/lastname={lname}/phone={pnumber}/address={location}/role={employment}")
+    @GET("/add/user/account_name={an}/account_password={ap}/firstname={fname}/lastname={lname}/phone={pnumber}/address={location}/role={employment}")
     suspend fun addUser(
+        @Path("an") accountName: String,
+        @Path("ap") accountPassword: String,
         @Path("fname") firstName: String,
         @Path("lname") lastName: String,
         @Path("pnumber") phoneNumber: String,
@@ -23,9 +25,11 @@ interface UserApi {
         @Path("employment") role: String
     )
 
-    @GET("/update/identification={id}/firstname={fname}/lastname={lname}/phone={pnumber}/address={location}/role={employment}")
+    @GET("/update/identification={id}/account_name={an}/account_password={ap}/firstname={fname}/lastname={lname}/phone={pnumber}/address={location}/role={employment}")
     suspend fun updateUser(
         @Path("id") id: Int,
+        @Path("an") accountName: String,
+        @Path("ap") accountPassword: String,
         @Path("fname") firstName: String,
         @Path("lname") lastName: String,
         @Path("pnumber") phoneNumber: String,

@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Oc_pizza_app</string>
+    <string name="fragment_login_username">username</string>
+    <string name="fragment_login_password">password</string>
+    <string name="fragment_login_create_account_btn_text">don\'t have account ?</string>
+    <string name="fragment_login_forgot_password_btn_text">forget password ?</string>
+    <string name="fragment_login_already_registered_tv">Already registered ?</string>
+    <string name="fragment_create_account_title_txt">Create new account</string>
+    <string name="fragment_create_account_account_name">Account name</string>
+    <string name="fragment_create_account_account_password">Password</string>
+    <string name="fragment_create_account_firstname">First name</string>
+    <string name="fragment_create_account_lastname">Last name</string>
+    <string name="fragment_create_account_phone_number">Phone number</string>
+    <string name="fragment_create_account_address">Address</string>
+    <string name="fragment_create_account_validate_btn">create</string>
+    <string name="fragment_create_account_successfully_created">Account successfully created</string>
 </resources>
