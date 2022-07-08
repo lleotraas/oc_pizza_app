@@ -14,6 +14,11 @@ interface UserApi {
         @Path("id") id: Int
     ): User
 
+    @GET("/account_name_exist/account_name={an}")
+    suspend fun accountNameExist(
+        @Path("an") accountName: String
+    ): Boolean
+
     @GET("/add/user/account_name={an}/account_password={ap}/firstname={fname}/lastname={lname}/phone={pnumber}/address={location}/role={employment}")
     suspend fun addUser(
         @Path("an") accountName: String,
@@ -23,7 +28,7 @@ interface UserApi {
         @Path("pnumber") phoneNumber: String,
         @Path("location") address: String,
         @Path("employment") role: String
-    )
+    ): User?
 
     @GET("/update/identification={id}/account_name={an}/account_password={ap}/firstname={fname}/lastname={lname}/phone={pnumber}/address={location}/role={employment}")
     suspend fun updateUser(

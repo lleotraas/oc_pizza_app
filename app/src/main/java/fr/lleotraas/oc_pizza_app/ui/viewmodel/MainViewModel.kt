@@ -1,5 +1,6 @@
 package fr.lleotraas.oc_pizza_app.ui.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,6 +13,7 @@ class MainViewModel(
 ) : ViewModel() {
 
     private var user = MutableLiveData<User>()
+    private var isAccountNameExist = MutableLiveData<Boolean>()
 
     fun addUser(
         accountName: String,
@@ -20,10 +22,10 @@ class MainViewModel(
         lastname: String,
         phoneNumber: String,
         address: String
-    ) {
+    ): MutableLiveData<User> {
         viewModelScope.launch {
-            var role = "customer"
-            userApi.addUser(
+            val role = "customer"
+            user.postValue(userApi.addUser(
                 accountName,
                 accountPassword,
                 firstname,
@@ -31,7 +33,22 @@ class MainViewModel(
                 phoneNumber,
                 address,
                 role
-            )
+            ))
         }
+        return user
+    }
+
+    fun accountNameExist(accountName: String): MutableLiveData<Boolean> {
+        viewModelScope.launch {
+            isAccountNameExist.postValue(userApi.accountNameExist(accountName))
+        }
+        return isAccountNameExist
+    }
+
+    fun getUser(id: Int): LiveData<User> {
+        viewModelScope.launch {
+            user.postValue(userApi.getUser(id))
+        }
+        return user
     }
 }

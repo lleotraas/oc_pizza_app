@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
@@ -35,7 +36,7 @@ class CreateAccountFragment : Fragment() {
                     fragmentCreateAccountAccountPasswordInput.text!!.isNotEmpty() &&
                     fragmentCreateAccountFirstnameInput.text!!.isNotEmpty() &&
                     fragmentCreateAccountLastnameInput.text!!.isNotEmpty() &&
-                    fragmentCreateAccountPhoneNumberInput.text!!.isNotEmpty() &&
+                    fragmentCreateAccountPhoneNumberInput.text!!.length == 12 &&
                     fragmentCreateAccountAddressInput.text!!.isNotEmpty()
         }
 
@@ -47,22 +48,21 @@ class CreateAccountFragment : Fragment() {
 
                 val viewModel = MainViewModel(RetrofitInstance.userApi)
 
-                viewModel.addUser(
-                    fragmentCreateAccountAccountNameInput.text.toString(),
-                    fragmentCreateAccountAccountPasswordInput.text.toString(),
-                    fragmentCreateAccountFirstnameInput.text.toString(),
-                    fragmentCreateAccountLastnameInput.text.toString(),
-                    fragmentCreateAccountPhoneNumberInput.text.toString(),
-                    fragmentCreateAccountAddressInput.text.toString()
-                )
-
-                val fragmentManager = requireActivity().supportFragmentManager
-                fragmentManager.commit {
-                    setReorderingAllowed(true)
-                    replace(R.id.activity_main_container, LoginFragment())
+                viewModel.accountNameExist(fragmentCreateAccountAccountNameInput.text.toString()).observe(viewLifecycleOwner) { isAccountNameExist ->
+                    if (isAccountNameExist) {
+                        fragmentCreateAccountAccountNameInput.setTextColor(ContextCompat.getColor(requireContext(), R.color.purple_500))
+                    } else {
+                        viewModel.addUser(
+                            fragmentCreateAccountAccountNameInput.text.toString(),
+                            fragmentCreateAccountAccountPasswordInput.text.toString(),
+                            fragmentCreateAccountFirstnameInput.text.toString(),
+                            fragmentCreateAccountLastnameInput.text.toString(),
+                            fragmentCreateAccountPhoneNumberInput.text.toString(),
+                            fragmentCreateAccountAddressInput.text.toString()
+                        )
+                        goToMainActivity()
+                    }
                 }
-
-                Toast.makeText(requireContext(), requireContext().resources.getString(R.string.fragment_create_account_successfully_created), Toast.LENGTH_SHORT).show()
             }
 
             fragmentCreateAccountAccountNameInput.addTextChangedListener {
@@ -90,7 +90,7 @@ class CreateAccountFragment : Fragment() {
             }
 
             fragmentCreateAccountPhoneNumberInput.addTextChangedListener {
-                if (it!!.length == 12) {
+                if (it!!.isNotEmpty()) {
                     enableValidateBtn()
                 }
             }
@@ -101,5 +101,15 @@ class CreateAccountFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun goToMainActivity() {
+        val fragmentManager = requireActivity().supportFragmentManager
+        fragmentManager.commit {
+            setReorderingAllowed(true)
+            replace(R.id.activity_main_container, LoginFragment())
+        }
+
+        Toast.makeText(requireContext(), requireContext().resources.getString(R.string.fragment_create_account_successfully_created), Toast.LENGTH_SHORT).show()
     }
 }
