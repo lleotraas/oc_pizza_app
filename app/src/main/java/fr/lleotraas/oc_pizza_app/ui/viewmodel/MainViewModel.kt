@@ -45,9 +45,9 @@ class MainViewModel(
         return isAccountNameExist
     }
 
-    fun getUser(id: Int): LiveData<User> {
+    fun getUser(accountName: String): LiveData<User> {
         viewModelScope.launch {
-            user.postValue(userApi.getUser(id))
+            user.postValue(userApi.getUser(accountName))
         }
         return user
     }

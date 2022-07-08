@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Oc_pizza_app</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
     <string name="fragment_login_username">username</string>
     <string name="fragment_login_password">password</string>
     <string name="fragment_login_create_account_btn_text">don\'t have account ?</string>
@@ -15,4 +19,9 @@
     <string name="fragment_create_account_validate_btn">create</string>
     <string name="fragment_create_account_successfully_created">Account successfully created</string>
     <string name="fragment_login_validate_btn_text">connect</string>
+    <string name="fragment_login_password_dont_match">Error, wrong password!</string>
+    <string name="fragment_login_username_dont_exist">Error, username doesn\'t exist !</string>
+    <string name="toolbar_main_menu_title">Main menu</string>
+    <string name="activity_main_menu_drawer_menu_setting">setting</string>
+    <string name="activity_main_menu_drawer_menu_quit">quit</string>
 </resources>

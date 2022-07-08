@@ -9,9 +9,9 @@ interface UserApi {
     @GET("/users")
     suspend fun getAllUsers(): List<User>
 
-    @GET("//user/identification={id}")
+    @GET("/user/account_name={an}")
     suspend fun getUser(
-        @Path("id") id: Int
+        @Path("an") accountName: String
     ): User
 
     @GET("/account_name_exist/account_name={an}")
