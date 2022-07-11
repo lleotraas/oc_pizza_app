@@ -14,17 +14,19 @@ interface PizzaApi {
         @Path("name") name: String
     ): Pizza
 
-    @GET("/add/pizza/id={name}/recipe={text}")
+    @GET("/add/pizza/id={name}/recipe={text}/pizza_img={img}")
     suspend fun addPizza(
         @Path("name") name: String,
-        @Path("text") recipe: String
+        @Path("text") recipe: String,
+        @Path("img") pizzaImg: ByteArray
     )
 
-    @GET("/update/pizza/id={name}/new_name={n_name}/recipe={text}")
+    @GET("/update/pizza/id={name}/new_name={n_name}/recipe={text}/pizza_img={img}")
     suspend fun updatePizza(
         @Path("name") name: String,
         @Path("n_name") newName: String,
-        @Path("text") recipe: String
+        @Path("text") recipe: String,
+        @Path("img") pizzaImg: ByteArray
     )
 
     @GET("/remove/pizza/id={name}")

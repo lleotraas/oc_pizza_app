@@ -24,4 +24,7 @@
     <string name="toolbar_main_menu_title">Main menu</string>
     <string name="activity_main_menu_drawer_menu_setting">setting</string>
     <string name="activity_main_menu_drawer_menu_quit">quit</string>
+    <string name="activity_main_menu_pizza_tab">Pizza</string>
+    <string name="activity_main_menu_drink_tab">Drink</string>
+    <string name="activity_main_menu_dessert_tab">Dessert</string>
 </resources>

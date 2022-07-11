@@ -5,25 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import fr.lleotraas.oc_pizza_app.databinding.FragmentDessertListBinding
 
-import fr.lleotraas.oc_pizza_app.databinding.FragmentMainMenuBinding
+class DessertListFragment : Fragment() {
 
-class MainMenuFragment : Fragment(){
-
-    private lateinit var binding: FragmentMainMenuBinding
+    private lateinit var binding: FragmentDessertListBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentMainMenuBinding.inflate(inflater, container, false)
-        configureListener()
+        binding = FragmentDessertListBinding.inflate(inflater, container, false)
         return binding.root
-    }
-
-    private fun configureListener() {
-
     }
 
 }
