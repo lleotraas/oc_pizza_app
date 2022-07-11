@@ -30,20 +30,20 @@ interface UserApi {
         @Path("employment") role: String
     ): User?
 
-    @GET("/update/identification={id}/account_name={an}/account_password={ap}/firstname={fname}/lastname={lname}/phone={pnumber}/address={location}/role={employment}")
+    @GET("/update/account_name={an}/new_account_name={nan}/account_password={ap}/firstname={fname}/lastname={lname}/phone={pnumber}/address={location}/role={employment}")
     suspend fun updateUser(
-        @Path("id") id: Int,
         @Path("an") accountName: String,
+        @Path("nan") newAccountName: String,
         @Path("ap") accountPassword: String,
         @Path("fname") firstName: String,
         @Path("lname") lastName: String,
         @Path("pnumber") phoneNumber: String,
         @Path("location") address: String,
         @Path("employment") role: String
-    )
+    ): Boolean
 
-    @GET("/remove/identification={id}")
+    @GET("/remove/account_name={an}")
     suspend fun removeUser(
-        @Path("id") id: Int
-    )
+        @Path("an") accountName: String
+    ): Boolean
 }

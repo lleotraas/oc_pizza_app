@@ -1,7 +1,6 @@
 package fr.lleotraas.oc_pizza_app.model
 
 class User(
-    val id: Int,
     val accountName: String,
     val accountPassword: String,
     val firstname: String,
